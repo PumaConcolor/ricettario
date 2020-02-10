@@ -68,4 +68,4 @@ end
 
 ## Funzionamento
 
-![image-20200208012110018](img\dfs1.png)
+![image-20200208012110018](img/dfs1.png)

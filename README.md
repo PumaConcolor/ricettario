@@ -1,12 +1,10 @@
-# Il Ricettario
-
-Una raccolta comprensiva di Algoritmi utili, interessanti, divertenti e non.
+*Il Ricettario* è na raccolta comprensiva di Algoritmi utili, interessanti, divertenti e non.
 
 ## Indice
 
 - Algoritmi sui grafi
-  - [Breadth-First Search](doc/bfs.html)
-  - [Depth-First Search](doc/dfs.html)
+  - [Breadth-First Search](./bfs.md)
+  - [Depth-First Search](./dfs.md)
 
 ## Bibliografia
 
