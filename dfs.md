@@ -1,4 +1,3 @@
-
 # Depth-First Search (DFS)
 
 ## Descrizione

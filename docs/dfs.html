@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Depth-First Search (DFS)</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="depth-first-search-dfs">Depth-First Search (DFS)</h1>
+<h2 id="descrizione">Descrizione</h2>
+<p>La strategia impiegata dall'algoritmo DFS è di andare a cercare nel grafo in
+profondità quando possibile. Nella ricerca DFS, gli archi vengono esplorati
+partendo dall'ultimo vertice <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span> che ha ancora archi inesplorati. Quando tutti
+gli archi sono stati esplorati, l'algoritmo &quot;torna indietro&quot; per esplorare gli
+archi uscenti da <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>. Il processo continua finché tutti i vertici raggiungibili
+a partire dal vertice di partenza <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>. Se ci sono altri vertici non esplorati,
+uno di essi è selezionato come nuova sorgente e la ricerca viene ripetuta a
+partire da quel vertice. Il processo termina quando non rimangono vertici
+inesplorati.</p>
+<p>Come nella ricerca BFS, quando un vertice <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span> viene scoperto durante la
+scansione della lista di adiacenza di un vertice <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> già scoperto, esso
+viene registrato come <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi><mo stretchy="false">[</mo><mi>v</mi><mo stretchy="false">]</mo><mo>=</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\pi[v]=u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span>.</p>
+<p>Al contrario della ricerca BFS, il cui sotto-grafo dei predecessori forma un
+albero, il sotto-grafo dei predecessori prodotto dalla ricerca DFS può essere
+composto da vari alberi, poiché la ricerca può essere ripetuta partendo da
+varie sorgenti.</p>
+<p>Oltre a creare foreste, la ricerca DFS imposta anche una <strong>timestamp</strong> per
+ogni vertice: ogni vertice ha due timestamp, il tempo di <strong>discovery</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo stretchy="false">[</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">d[v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>
+e il tempo di <strong>fine</strong> della ricerca sulla lista di adiacenza <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>. Per ogni
+vertice <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>, quindi, vale la relazione <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo><mo>&lt;</mo><mi>f</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">d[u]\lt f[u]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span></span></span></span>. Le timestamp sono
+utilizzate in vari algoritmi sui grafi e sono generalmente utili per capire
+il funzionamento della ricerca DFS.</p>
+<p>Il vertice <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span> è bianco prima del tempo <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">d[u]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span></span></span></span>, grigio tra <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">d[u]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span></span></span></span> e <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[u]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span></span></span></span> e
+nero dopo <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>u</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[u]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span></span></span></span>.</p>
+<h2 id="algoritmo">Algoritmo</h2>
+<pre><code class="language-pascal"><div><span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">DFS</span><span class="hljs-params">(G)</span>
+	<span class="hljs-title">for</span> <span class="hljs-title">vertex</span> <span class="hljs-title">v</span> <span class="hljs-title">in</span> <span class="hljs-title">V</span>[<span class="hljs-title">G</span>] <span class="hljs-title">do</span>
+		<span class="hljs-title">color</span>[<span class="hljs-title">u</span>] :</span>= WHITE
+		π[u] := <span class="hljs-keyword">NIL</span>
+	<span class="hljs-keyword">end</span>
+	time := <span class="hljs-number">0</span>
+	<span class="hljs-keyword">for</span> vertex u <span class="hljs-keyword">in</span> V[G] <span class="hljs-keyword">do</span>
+		<span class="hljs-keyword">if</span> color[u] = WHITE <span class="hljs-keyword">then</span>
+			DFS-VISIT(u)
+		<span class="hljs-keyword">end</span>
+	<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<pre><code class="language-pascal"><div><span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">DFS</span>-<span class="hljs-title">VISIT</span><span class="hljs-params">(u)</span>
+	<span class="hljs-title">color</span>[<span class="hljs-title">u</span>] :</span>= GRAY	<span class="hljs-comment">// Il vertice bianco u e' stato scoperto</span>
+	time := time + <span class="hljs-number">1</span>
+	d[u] := time
+	<span class="hljs-keyword">for</span> vertex v <span class="hljs-keyword">in</span> ADJ(u) <span class="hljs-keyword">do</span>	<span class="hljs-comment">// Esploro tutti gli archi (u, v)</span>
+		<span class="hljs-keyword">if</span> color[v] = WHITE <span class="hljs-keyword">then</span>
+			π[v] := u
+			DFS-VISIT[v]
+		<span class="hljs-keyword">end</span>
+	<span class="hljs-keyword">end</span>
+	color[u] := BLACK	<span class="hljs-comment">// La visita di u e' terminata</span>
+	f[u] := time
+	time := time + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h2 id="funzionamento">Funzionamento</h2>
+<p><img src="file:///c:\Users\quartz\Desktop\apal-repo\img\dfs1.png" alt="image-20200208012110018"></p>
+
+    </body>
+    </html>
