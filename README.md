@@ -7,8 +7,8 @@
 ## Indice
 
 - Algoritmi sui grafi
-  - [Breadth-First Search](docs/bfs.html)
-  - [Depth-First Search](docs/dfs.html)
+  - [Breadth-First Search](bfs.html)
+  - [Depth-First Search](dfs.html)
 
 ## Bibliografia
 
