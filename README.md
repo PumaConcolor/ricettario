@@ -1,4 +1,4 @@
-*Il Ricettario* è na raccolta comprensiva di Algoritmi utili, interessanti, divertenti e non.
+*Il Ricettario* è una raccolta comprensiva di Algoritmi utili, interessanti, divertenti e non.
 
 ## Indice
 
