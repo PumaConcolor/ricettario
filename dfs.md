@@ -67,4 +67,4 @@ end
 
 ## Funzionamento
 
-![image-20200208012110018](img/dfs1.png)
+![dfs1](https://raw.githubusercontent.com/jack23247/ricettario/master/img/dfs1.png)

@@ -62,4 +62,4 @@ end
 Simulazione del funzionamento di un algoritmo BFS su un grafo non orientato, a
 partire dal vertice $s$.
 
-![image-20200207181925585](img/bfs1.png)
+![bfs1](https://raw.githubusercontent.com/jack23247/ricettario/master/img/bfs1.png)
