@@ -1,5 +1,9 @@
 # Depth-First Search (DFS)
 
+#### [🏡 Home](index.html) ◾ [📚 Repo](https://github.com/jack23247/ricettario)
+
+---
+
 ## Descrizione
 
 La strategia impiegata dall'algoritmo DFS è di andare a cercare nel grafo in

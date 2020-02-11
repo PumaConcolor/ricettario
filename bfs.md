@@ -1,5 +1,9 @@
 # Breadth-First Search (BFS)
 
+#### [🏡 Home](index.html) ◾ [📚 Repo](https://github.com/jack23247/ricettario)
+
+---
+
 ## Descrizione
 
 Il **BFS** è uno degli algoritmi più semplici per la ricerca su un grafo, e un

@@ -1,5 +1,9 @@
 # Minimum Spanning Tree
 
+#### [🏡 Home](index.html) ◾ [📚 Repo](https://github.com/jack23247/ricettario)
+
+---
+
 ## Descrizione
 
 Dato un grafo pesato $G$, un **MST** è un suo sotto-grafo aciclico che ne
