@@ -9,6 +9,7 @@
 - Algoritmi sui grafi
   - [Breadth-First Search](bfs.html)
   - [Depth-First Search](dfs.html)
+  - [Minimum Spanning Tree](mst.html)
 
 ## Bibliografia
 

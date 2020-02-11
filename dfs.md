@@ -67,4 +67,8 @@ end
 
 ## Funzionamento
 
-![dfs1](https://raw.githubusercontent.com/jack23247/ricettario/master/img/dfs1.png)
+![dfs1](img/dfs1.png)
+
+## Tempi
+
+$\Theta(|V|+|E|)$ con $|V|\gt|E|\rarr\Theta(|V|)$

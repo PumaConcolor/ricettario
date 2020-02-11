@@ -62,4 +62,8 @@ end
 Simulazione del funzionamento di un algoritmo BFS su un grafo non orientato, a
 partire dal vertice $s$.
 
-![bfs1](https://raw.githubusercontent.com/jack23247/ricettario/master/img/bfs1.png)
+![bfs1](img/bfs1.png)
+
+## Tempi
+
+$\text{O}(|V|+|E|)$ con $|V|\gt|E|\rarr\Theta(|V|)$
