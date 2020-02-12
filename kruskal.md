@@ -1,4 +1,4 @@
-# Kruskal
+# Algoritmo di Kruskal
 
 #### [🏡 Home](index.html) ◾ [📚 Repo](https://github.com/jack23247/ricettario)
 
