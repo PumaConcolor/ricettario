@@ -13,6 +13,8 @@
   - [Breadth-First Search](bfs.html)
   - [Depth-First Search](dfs.html)
   - [Minimum Spanning Tree](mst.html)
+    - [Algoritmo di Kruskal](kruskal.html)
+    - [Algoritmo di Prim](prim.html)
 
 ## Bibliografia
 
